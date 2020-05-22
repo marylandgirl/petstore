@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label>Phone Number: </label>
-                <input th:field="*{phone}" type="number" class="form-control"  placeholder="Phone Number">
+                <input th:field="*{phone}" type="text" class="form-control"  placeholder="Phone Number">
             </div>
             <div class="form-group">
                 <label>Pet Name: </label>
@@ -59,26 +59,97 @@
                 <label>Pet Age: </label>
                 <input th:field="*{pet.age}" type="number" class="form-control"  placeholder="Pet Age">
             </div>
-            <div class="form-group">
-                <label>Pet Type</label>
-                <select id="pettype" class="form-control">
-                    <option th:field="*{pet.petType}" value="Dog">
-                        <div data-th-if="">
-                            Dog
-                        </div>
-                    </option>
-                    <option th:field="*{pet.petType}" value="Cat">Cat</option>
-                </select>
+
+            <div class="form-group row">
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.petType}" class="form-check-input" type="radio" name="inlineRadioOptions1"
+                           value="Dog">
+                    <label class="form-check-label">Dog</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.petType}" class="form-check-input" type="radio" name="inlineRadioOptions1"
+                           value="Cat">
+                    <label class="form-check-label">Cat</label>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Dog Breed Type</label>
-                <select class="form-control">
-                    <option>Alaskan Huskey</option>
-                    <option>Boxer</option>
-                    <option>Chihuahua</option>
-                    <option>Golden Retriever</option>
-                </select>
+
+            <div class="form-group row">
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.gender}" class="form-check-input" type="radio" name="inlineRadioOptions2"
+                           value="Male">
+                    <label class="form-check-label">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.gender}" class="form-check-input" type="radio" name="inlineRadioOptions2"
+                           value="Female">
+                    <label class="form-check-label">Female</label>
+                </div>
             </div>
+            <div class="form-group row"> <!--Begin Dog Breed Selection -->
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Alaskan Husky">
+                    <label class="form-check-label">Alaskan Husky</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Boxer">
+                    <label class="form-check-label">Boxer</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Chihuahua">
+                    <label class="form-check-label">Chihuahua</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Golden Retriever">
+                    <label class="form-check-label">Golden Retriever</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Maltese">
+                    <label class="form-check-label">Maltese</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Poodle">
+                    <label class="form-check-label">Poodle</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Shar Pei">
+                    <label class="form-check-label">Shar Pei</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Yorkshire Terrier">
+                    <label class="form-check-label">Yorkshire Terrier</label>
+                </div>
+            </div> <!--End Dog Breed Selection -->
+            <div class="form-group row"> <!--Begin Cat Breed Selection -->
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Abyssinian">
+                    <label class="form-check-label">Abyssinian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Asian Semi-longhair">
+                    <label class="form-check-label">Asian Semi-longhair</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Birman">
+                    <label class="form-check-label">Birman</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Bombay">
+                    <label class="form-check-label">Bombay</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Korat">
+                    <label class="form-check-label">Korat</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Russian Blue">
+                    <label class="form-check-label">Russian Blue</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input th:field="*{pet.breedtype}" class="form-check-input" type="radio" value="Sphinx">
+                    <label class="form-check-label">Sphinx</label>
+                </div>
+            </div> <!--End Cat Breed Selection -->
+            <input type="submit" value="Submit"/>
         </form>
 
         <div class="row fixed-bottom"> <!--Beginning row 1-->

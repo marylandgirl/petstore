@@ -42,6 +42,8 @@ public class Customer {
                 ", pet=" + pet +
                 '}';*/
 
-        return name + " " + phone + " " + pet.getBreedtype();
+        return name + " " + phone + " " + pet.getName() +
+               " " +  pet.getAge() + " " + pet.getGender() +
+                " " + pet.getPetType() + pet.getBreedtype();
     }
 }

@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Home</title>
+    <title>Add</title>
 </head>
 <body>
     <div class="container"> <!--Begin Main Container -->
@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" th:href="@{/home}" href="./index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dogs</a>
@@ -33,7 +33,7 @@
                             Add
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" th:href="@{/add}" href="./add.html">New Customer</a>
+                            <a class="dropdown-item" href="#">New Customer</a>
               <!--              <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>-->
                         </div>
@@ -41,25 +41,53 @@
                 </ul>
             </div>
         </nav>
-        <h1>Pet Shop Customer Listing</h1>
-            <!--<div th:each="customer: ${customerList.values()}">-->
-            <div th:each="key: ${customerList.keySet()}">
-                <p th:text="${key} +' ' + ${customerList.get(key)}"></p>
+
+        <form action="#" th:action="@{/update}" th:object="${customer}" method="post">
+            <div class="form-group">
+                <label>Customer Name: </label>
+                <input th:field="*{name}" type="text" class="form-control"  placeholder="Customer Name">
             </div>
+            <div class="form-group">
+                <label>Phone Number: </label>
+                <input th:field="*{phone}" type="number" class="form-control"  placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+                <label>Pet Name: </label>
+                <input th:field="*{pet.name}" type="text" class="form-control"  placeholder="Pet Name">
+            </div>
+            <div class="form-group">
+                <label>Pet Age: </label>
+                <input th:field="*{pet.age}" type="number" class="form-control"  placeholder="Pet Age">
+            </div>
+            <div class="form-group">
+                <label>Pet Type</label>
+                <select id="pettype" class="form-control">
+                    <option th:field="*{pet.petType}" value="Dog">
+                        <div >
+                            Dog
+                        </div>
+                    </option>
+                    <option th:field="*{pet.petType}" value="Cat">Cat</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Dog Breed Type</label>
+                <select class="form-control">
+                    <option>Alaskan Huskey</option>
+                    <option>Boxer</option>
+                    <option>Chihuahua</option>
+                    <option>Golden Retriever</option>
+                </select>
+            </div>
+        </form>
 
-            <div class="row fixed-bottom"> <!--Beginning row 1-->
-                <div class="col"> <!--Beginning col 1 row 1-->
-                    <a class="btn btn-primary" th:href="@{/add}" href="./add.html" role="button">ADD</a>
-                    <a class="btn btn-primary" th:href="@{/add}" href="./add.html" role="button">UPDATE</a>
-                    <a class="btn btn-primary" th:href="@{/add}" href="./add.html" role="button">DELETE</a>
-  <!--                  <button class="btn btn-primary" type="submit">Button</button>
-                    <form th:action="@{/add}" action="./add.html">
-                        <input class="btn btn-primary" type="submit" value="ADD">
-                    </form>
-                    <form><input class="btn btn-primary" type="submit" value="UPDATE"></form>
-                    <form><input class="btn btn-primary" type="reset" value="DELETE"></form>-->
-
-
+        <div class="row fixed-bottom"> <!--Beginning row 1-->
+            <div class="col"> <!--Beginning col 1 row 1-->
+                <!--       <a class="btn btn-primary" href="#" role="button">Link</a>
+                   <button class="btn btn-primary" type="submit">Button</button>-->
+                <input class="btn btn-primary" type="button" value="ADD">
+                <input class="btn btn-primary" type="submit" value="UPDATE">
+                <input class="btn btn-primary" type="reset" value="DELETE">
                 </div> <!--End col 1 row 1-->
             </div>  <!--End row 1-->
     </div> <!--End Main Container -->
@@ -70,3 +98,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 </html>
+
+

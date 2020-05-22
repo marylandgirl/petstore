@@ -18,7 +18,7 @@ public class HomeController {
     @GetMapping("/home")
     public String listCustomers(Model model) {
         Customer testCustomer = new Customer();
-        testCustomer.setName("Kim Levin");
+        /*testCustomer.setName("Kim Levin");
         testCustomer.setPhone("555-555-5555");
         testCustomer.getPet().setName("Snoopy");
         testCustomer.getPet().setAge(12);
@@ -26,7 +26,7 @@ public class HomeController {
         testCustomer.getPet().setGender("Male");
         testCustomer.getPet().setPetType("Dog");
         customerList.put(++counter,testCustomer);
-        customers.add(testCustomer);
+        customers.add(testCustomer);*/
         model.addAttribute("customerList",customerList);
         model.addAttribute("customers",customers);
         return "index";
@@ -41,8 +41,10 @@ public class HomeController {
 
     @PostMapping("/update")
     public String updateList(@ModelAttribute Customer customer , Model model) {
-/*        customerList.put(++counter,customer);
-        return "index";*/
-        return null;
+       customerList.put(++counter,customer);
+        customers.add(customer);
+       System.out.println("The number of customers is " + customerList.size());
+       model.addAttribute("customerList",customerList);
+        return "index";
     }
 }
