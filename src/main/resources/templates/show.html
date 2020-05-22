@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>Show</title>
+    <title th:text="${petType} + ' owners'">Show</title>
 </head>
 <body>
     <div class="container"> <!--Begin Main Container -->
@@ -20,20 +20,20 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" th:href="@{/home}" href="./index.html">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dogs</a>
+                        <a class="nav-link" th:href="@{/showdogs}" href="./show.html">Dogs</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cats</a>
+                        <a class="nav-link" th:href="@{/showcats}" href="./show.html">Cats</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" th:href="@{/add}" href="./add.html" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Add
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="add.html">New Customer</a>
+                            <a class="dropdown-item" th:href="@{/add}" href="./add.html">New Customer</a>
               <!--              <a class="dropdown-item" href="#">Another action</a>
                             <a class="dropdown-item" href="#">Something else here</a>-->
                         </div>
@@ -41,8 +41,12 @@
                 </ul>
             </div>
         </nav>
-        <h1> Customer List </h1>
-        
+        <h1 th:text="${petType} + ' Owner Listing'"> Customer List </h1>
+
+        <div th:each="customer: ${customers}">
+            <p th:if="${customer.getPet().petType}==${petType}" th:text="${customer.toString()}"> </p>
+<!--            <p [[${customer.toString()}]]> </p>-->
+        </div>
             <div class="row fixed-bottom"> <!--Beginning row 1-->
                 <div class="col"> <!--Beginning col 1 row 1-->
              <!--       <a class="btn btn-primary" href="#" role="button">Link</a>

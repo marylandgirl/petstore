@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,8 +44,24 @@ public class HomeController {
     public String updateList(@ModelAttribute Customer customer , Model model) {
        customerList.put(++counter,customer);
         customers.add(customer);
-       System.out.println("The number of customers is " + customerList.size());
-       model.addAttribute("customerList",customerList);
-        return "index";
+       System.out.println("The number of Pet Type is " + customer.getPet().getPetType());
+       model.addAttribute("customers",customers);
+       model.addAttribute("petType",customer.getPet().getPetType());
+        return "show";
     }
+
+    @GetMapping("/showdogs")
+    public String showDogOwners(Model model) {
+        model.addAttribute("customers",customers);
+        model.addAttribute("petType","Dog");
+        return "show";
+    }
+
+    @GetMapping("/showcats")
+    public String showCatOwners(Model model) {
+        model.addAttribute("customers",customers);
+        model.addAttribute("petType","Cat");
+        return "show";
+    }
+
 }
